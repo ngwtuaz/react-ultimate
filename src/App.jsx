@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import MyComponent from './components/learn/MyComponent';
-import {SecondComponent,ThirdComponent} from './components/learn/SecondComponent';
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import MyComponent from "./components/learn/MyComponent";
+import {
+  SecondComponents,
+  ThirdComponents,
+} from "./components/learn/SecondComponent";
 
 //() => {}
 // function App() {
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -21,9 +24,9 @@ const App = () => {
         </a>
       </div>
       <h1>HII + HEE</h1>
-      <MyComponent/>
-      <SecondComponent/>
-      <ThirdComponent/>
+      <MyComponent />
+      <SecondComponents />
+      <ThirdComponents />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -36,7 +39,7 @@ const App = () => {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

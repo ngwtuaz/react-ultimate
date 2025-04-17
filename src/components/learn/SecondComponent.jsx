@@ -5,11 +5,11 @@ const SecondComponents = ()=> {
         </div>
     )
 }
-const ThirdComponent = () => {
+const ThirdComponents = () => {
     return (
         <div>
             Third Component
         </div>
     )
 }
-export  {SecondComponents,ThirdComponent};
+export  {SecondComponents,ThirdComponents};
