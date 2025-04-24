@@ -15,8 +15,12 @@ const UserForm = () => {
         message: "Create user successfully",
         description: `User ${res.data.fullName} created successfully`,
       });
+    } else {
+      notification.error({
+        message: "Create user failed",
+        description: JSON.stringify(res.message),
+      });
     }
-    console.log(res.data.data);
   };
   return (
     <div className="user-form" style={{ margin: "20px 0" }}>

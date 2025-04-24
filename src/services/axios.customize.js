@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: import.meta.env.VITE_BACKEND_URL,
 });
 
 //instance.defaults.headers.common['Authorization']= AUTH_TOKEN;
@@ -29,6 +29,8 @@ instance.interceptors.response.use(
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+
+    if (error.response && error.response.data) return error.response.data;
     return Promise.reject(error);
   }
 );
