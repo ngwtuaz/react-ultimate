@@ -1,6 +1,6 @@
 import { Input, Button, notification, Modal } from "antd";
 import { useState } from "react";
-import { CreateUserApi } from "../../services/api.service";
+import { CreateUserAPI } from "../../services/api.service";
 
 const UserForm = (props) => {
   const { loadUser } = props;
@@ -11,11 +11,11 @@ const UserForm = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmitBtn = async () => {
-    const res = await CreateUserApi(fullName, email, password, phone);
+    const res = await CreateUserAPI(fullName, email, password, phone);
     if (res.data) {
       notification.success({
         message: "Create user successfully",
-        description: `User ${res.data.fullName} created successfully`,
+        description: `User created successfully`,
       });
       resetAndCloseModal();
       await loadUser();
@@ -44,12 +44,12 @@ const UserForm = (props) => {
       </div>
 
       <Modal
-        title="Basic Modal"
+        title="Create User"
         open={isModalOpen}
         onOk={() => handleSubmitBtn()}
         onCancel={() => resetAndCloseModal()}
         maskClosable={false}
-        okText="Create"
+        okText={"CREATE"}
       >
         <div style={{ display: "flex", gap: "15px", flexDirection: "column" }}>
           <div>
