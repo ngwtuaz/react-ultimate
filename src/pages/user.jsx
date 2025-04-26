@@ -6,6 +6,7 @@ import { fetchAllUserAPI } from "../services/api.service";
 const UserPage = () => {
   //lift-up state
   const [dataUser, setDataUser] = useState([]);
+
   //empty array =>run once
   useEffect(() => {
     loadUser();
