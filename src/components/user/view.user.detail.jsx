@@ -12,7 +12,7 @@ const ViewUserDetail = (props) => {
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
 
-  const hanldeOnChangeFile = (event) => {
+  const handleOnChangeFile = (event) => {
     if (!event.target.files || event.target.files.length === 0) {
       setSelectedFile(null);
       setPreview(null);
@@ -26,7 +26,7 @@ const ViewUserDetail = (props) => {
       setPreview(URL.createObjectURL(file));
     }
   };
-  const hanldeUpdateUserAvatar = async () => {
+  const handleUpdateUserAvatar = async () => {
     //step1 upload file
     const resUpload = await handleUploadFile(selectedFile, "avatar");
     if (resUpload.data) {
@@ -121,9 +121,9 @@ const ViewUserDetail = (props) => {
                 type="file"
                 hidden
                 id="btnUpload"
-                // onChange={hanldeOnChangeFile}
+                // onChange={handleOnChangeFile}
                 onChange={(event) => {
-                  hanldeOnChangeFile(event);
+                  handleOnChangeFile(event);
                 }}
               />
             </div>
@@ -146,7 +146,7 @@ const ViewUserDetail = (props) => {
                     src={preview}
                   />
                 </div>
-                <Button type="primary" onClick={hanldeUpdateUserAvatar}>
+                <Button type="primary" onClick={handleUpdateUserAvatar}>
                   Save
                 </Button>
               </>
