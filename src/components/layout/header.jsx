@@ -5,6 +5,7 @@ import {
   HomeOutlined,
   UsergroupAddOutlined,
   AuditOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
 
 const Header = () => {
@@ -28,6 +29,21 @@ const Header = () => {
       label: <Link to={"/books"}>Books</Link>,
       key: "books",
       icon: <AuditOutlined />,
+    },
+    {
+      label: "Setting",
+      key: "setting",
+      icon: <SettingOutlined />,
+      children: [
+        {
+          label: <Link to={"/login"}>Login</Link>,
+          key: "login",
+        },
+        {
+          label: "Logout",
+          key: "logout",
+        },
+      ],
     },
   ];
   return (
