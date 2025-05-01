@@ -54,7 +54,6 @@ const ViewUserDetail = (props) => {
           description: JSON.stringify(resUpdateAvatar.message),
         });
       }
-      console.log(resUpdateAvatar);
     } else {
       //failed
       notification.error({
@@ -62,7 +61,6 @@ const ViewUserDetail = (props) => {
         description: JSON.stringify(resUpload.message),
       });
     }
-    console.log(resUpload);
   };
 
   return (

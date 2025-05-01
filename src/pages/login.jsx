@@ -36,9 +36,7 @@ const LoginPage = () => {
     }
     setLoading(false);
   };
-  // const onFinish = async (values) => {
-  //   console.log(values);
-  // };
+
   return (
     <Row justify={"center"} style={{ marginTop: "30px" }}>
       <Col xs={24} md={16} lg={8}>
@@ -75,7 +73,11 @@ const LoginPage = () => {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") form.submit();
+                }}
+              />
             </Form.Item>
           </Form>
           <div

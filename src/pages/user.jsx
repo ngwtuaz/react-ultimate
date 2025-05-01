@@ -25,7 +25,6 @@ const UserPage = () => {
       setTotal(res.data.meta.total);
     }
   };
-  console.log("check pagesize", pageSize);
 
   return (
     <div style={{ padding: "20px" }}>
