@@ -4,14 +4,10 @@ import axios from "./axios.customize";
 const CreateUserAPI = (fullName, email, password, phone) => {
   const URL_BACKEND = "/api/v1/user";
   const data = {
-    // fullName: fullName,
-    // email: email,
-    // password: password,
-    // phone: phone,
-    fullName,
-    email,
-    password,
-    phone,
+    fullName: fullName,
+    email: email,
+    password: password,
+    phone: phone,
   };
   return axios.post(URL_BACKEND, data);
 };
@@ -82,6 +78,53 @@ const LogOutAPI = () => {
   const URL_BACKEND = "/api/v1/auth/logout";
   return axios.post(URL_BACKEND);
 };
+const CreateBookAPI = (
+  thumbnail,
+  mainText,
+  author,
+  price,
+  quantity,
+  category
+) => {
+  const URL_BACKEND = "/api/v1/book";
+  const data = {
+    thumbnail: thumbnail,
+    mainText: mainText,
+    author: author,
+    price: Number(price),
+    quantity: Number(quantity),
+    category: category,
+  };
+  return axios.post(URL_BACKEND, data);
+};
+const fetchAllBookAPI = (current, pageSize) => {
+  const URL_BACKEND = `/api/v1/book?current=${current}&pageSize=${pageSize}`;
+  return axios.get(URL_BACKEND);
+};
+const UpdateBookAPI = (
+  thumbnail,
+  mainText,
+  author,
+  price,
+  quantity,
+  category
+) => {
+  const URL_BACKEND = "/api/v1/book";
+  const data = {
+    thumbnail,
+    mainText,
+    author,
+    price,
+    quantity,
+    category,
+  };
+  return axios.put(URL_BACKEND, data);
+};
+const DeleteBookAPI = (id) => {
+  const URL_BACKEND = `/api/v1/book/${id}`;
+  return axios.delete(URL_BACKEND);
+};
+
 export {
   CreateUserAPI,
   UpdateUserAPI,
@@ -93,4 +136,8 @@ export {
   LoginAPI,
   GetAccountAPI,
   LogOutAPI,
+  CreateBookAPI,
+  fetchAllBookAPI,
+  UpdateBookAPI,
+  DeleteBookAPI,
 };
