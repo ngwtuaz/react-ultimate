@@ -177,7 +177,7 @@ const CreateBookUnControl = (props) => {
             </Form.Item>
           </div>
           <div>
-            <span>Thumbnail Img</span>
+            <span>Thumbnail Image</span>
             <div>
               <label
                 htmlFor="btnUpload"
