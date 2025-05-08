@@ -102,6 +102,7 @@ const fetchAllBookAPI = (current, pageSize) => {
   return axios.get(URL_BACKEND);
 };
 const UpdateBookAPI = (
+  _id,
   thumbnail,
   mainText,
   author,
@@ -111,12 +112,13 @@ const UpdateBookAPI = (
 ) => {
   const URL_BACKEND = "/api/v1/book";
   const data = {
-    thumbnail,
-    mainText,
-    author,
-    price,
-    quantity,
-    category,
+    _id: _id,
+    thumbnail: thumbnail,
+    mainText: mainText,
+    author: author,
+    price: price,
+    quantity: quantity,
+    category: category,
   };
   return axios.put(URL_BACKEND, data);
 };
