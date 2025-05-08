@@ -1,5 +1,5 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { Menu, message } from "antd";
 import {
   HomeOutlined,
@@ -15,6 +15,22 @@ const Header = () => {
   const [current, setCurrent] = useState("");
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location && location.pathname) {
+      const allRoutes = ["users", "books"];
+      const currentRoute = allRoutes.find(
+        (item) => `/${item}` === location.pathname
+      );
+      if (currentRoute) {
+        setCurrent(currentRoute);
+      } else {
+        setCurrent("home");
+      }
+    }
+  }, [location]);
+
   const handleLogout = async () => {
     const res = await LogOutAPI();
     if (res.data) {
@@ -37,6 +53,7 @@ const Header = () => {
   const onClick = (e) => {
     setCurrent(e.key);
   };
+
   const items = [
     {
       label: <Link to={"/"}>Home</Link>,
@@ -88,6 +105,7 @@ const Header = () => {
         ]
       : []),
   ];
+
   return (
     <Menu
       onClick={onClick}

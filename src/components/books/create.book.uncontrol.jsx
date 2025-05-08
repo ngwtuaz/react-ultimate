@@ -88,6 +88,9 @@ const CreateBookUnControl = (props) => {
       onCancel={() => resetAndCloseModal()}
       maskClosable={false}
       okText={"CREATE"}
+      okButtonProps={{
+        loading: true,
+      }}
     >
       <Form form={form} onFinish={handleSubmitBtn} layout="vertical">
         <div style={{ display: "flex", flexDirection: "column" }}>
